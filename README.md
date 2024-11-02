@@ -16,6 +16,8 @@ This is a unity project but I only included the assests folder because i am bad 
   - [X] Rotate Deck (90 deg)
   - [X] Shuffle Deck
   - [ ] Create multiple decks
+    - [ ] Select deck to add card to
+    - [ ] Background right click menu
 - Chips
   - [ ] Move
 - Stacks (Many chips)
