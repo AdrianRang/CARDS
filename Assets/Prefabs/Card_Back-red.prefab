@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 8974260746979706593, guid: 9270720bf00634ecf91c924a465251e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,6 +156,8 @@ MonoBehaviour:
   - {fileID: -2119946969, guid: c5605c892014a438c8f0f808435a684a, type: 3}
   - {fileID: -142654255, guid: c5605c892014a438c8f0f808435a684a, type: 3}
   backSprite: {fileID: 8974260746979706593, guid: 9270720bf00634ecf91c924a465251e1, type: 3}
+  menu: {fileID: 594793055350290060, guid: 856aac97110af43fd9c5ef2b1ea406dc, type: 3}
+  deckPrefab: {fileID: 2246650771828569181, guid: 65a90a6ef1a14442b8355fe103bdb49e, type: 3}
   visible: 0
 --- !u!61 &4082840519005145145
 BoxCollider2D:

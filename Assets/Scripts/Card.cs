@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -32,6 +31,8 @@ public class Card : MonoBehaviour
     public Suit cardSuit;
     public Sprite[] cardSprites;
     public Sprite backSprite;
+    public GameObject menu;
+    public GameObject deckPrefab;
 
     private SpriteRenderer sr;
 
@@ -49,7 +50,7 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(visible) {
+        if(visible) {
             sr.sprite = GetSprite(cardValue, cardSuit);
         } else{
             sr.sprite = backSprite;
@@ -66,22 +67,55 @@ public class Card : MonoBehaviour
         mouseOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         timeWhenPressed = Time.time;
         sr.sortingOrder = 1;
-        if(Input.GetKey(KeyCode.A)){
-            Debug.Log("Destroying...");
-            GameObject.Find("Deck").GetComponent<Deck>().addCard(gameObject);
-            Destroy(gameObject);
-        }
+        // if(Input.GetKey(KeyCode.A)){
+        //     GameObject.Find("Deck").GetComponent<Deck>().addCard(gameObject);
+        //     Destroy(gameObject);
+        // }
     }
 
     private void OnMouseUp() {
         if(Time.time - timeWhenPressed < 0.15) {
-            visible = !visible;
+            TurnCard();
         }
-        sr.sortingOrder = 0;
+
+        sr.sortingOrder = -1;
+        if(GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Decks"))) {
+            Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position, LayerMask.GetMask("Decks"));
+            foreach (Collider2D collider in colliders) {
+                if (collider.GetComponent<Deck>() != null) {
+                    collider.GetComponent<Deck>().addCard(gameObject);
+                    Destroy(gameObject);
+                    break;
+                }
+            }
+        }
     }
 
     private void OnMouseDrag() {
         transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y) - mouseOffset;
+    }
+
+    private void OnMouseOver() {
+        // Right Click menu
+        if(Input.GetMouseButtonDown(1)){
+            GameObject tempMenu = Instantiate(menu, GameObject.Find("Canvas").transform);
+            Button turnOver = tempMenu.GetComponentsInChildren<Button>()[0];
+            Button sendToDeck = tempMenu.GetComponentsInChildren<Button>()[1];
+
+            tempMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            turnOver.onClick.AddListener(TurnCard);
+            sendToDeck.onClick.AddListener(TurnToDeck);
+        }
+    }
+
+    public void TurnCard() {
+        visible = !visible;
+    }
+
+    public void TurnToDeck(){
+        GameObject deck = Instantiate(deckPrefab);
+        deck.transform.position = transform.position;
+        deck.GetComponent<Deck>().addCard(gameObject);
     }
 
     // this is used when instantiated from deck to make sure it's grabbed

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dca8636029f264b9c91f07391a2157e6
+guid: 7a48ef7e24399411182858a2ae14521e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5738873883905532154
-    second: Card_DeckB-124x104_0
+      213: 3128785829948888950
+    second: Template_Top-Down_Large_Half-120x72_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,64 +126,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Deck-H-Red
+      name: Template_Top-Down_Large_Half-120x72_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 124
-        height: 104
+        width: 120
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4719073c39ed6479db362a6f3e870ac8
-      internalID: 1181500509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Card_Deck-H-Blue
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 0
-        width: 124
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b196167967bf4279919764063b99da0
-      internalID: 81131440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Card_Deck-H-Blank
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 0
-        width: 124
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e80384e1cbf53432393e47d92c542f46
-      internalID: -323816673
+      spriteID: 6771164a22eab6b20800000000000000
+      internalID: 3128785829948888950
       vertices: []
       indices: 
       edges: []
@@ -191,17 +149,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d5f0f774ee0b343fc88d85155dedb07f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Card_Deck-H-Blank: -323816673
-      Card_Deck-H-Blue: 81131440
-      Card_Deck-H-Red: 1181500509
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

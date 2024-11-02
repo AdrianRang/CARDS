@@ -1,26 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
+
+
     public Card[] cards;
 
     public GameObject cardPrefab;
+    public GameObject menu;
+
+    public Sprite horSprite;
+    public Sprite vecSprite;
+
+    private bool dragging = false;
+    private bool horizontal = false;
+
+    private SpriteRenderer sr;
+    private BoxCollider2D bc;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(cards.Length == 0) {
-            GetComponent<SpriteRenderer>().enabled = false;
+            // sr.enabled = false;
+            Destroy(gameObject);
         } else{
-            GetComponent<SpriteRenderer>().enabled = true;
+            sr.enabled = true;
+        }
+
+        if (dragging){
+            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -37,6 +56,15 @@ public class Deck : MonoBehaviour
     }
 
     private void OnMouseDown() {
+        if(!dragging){
+            TakeOutCard();
+        } else {
+            dragging = false;
+        }
+    }
+
+    public void TakeOutCard() {
+        if(cards.Length == 0) return;
         GameObject newCard = Instantiate(cardPrefab);
         newCard.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Card outCard = newCard.GetComponent<Card>();
@@ -45,6 +73,57 @@ public class Deck : MonoBehaviour
         outCard.cardSuit = lastCard.cardSuit;
         outCard.StartDragging();
         cards = pop(cards);
+    }
+
+    // https://stackoverflow.com/questions/108819/best-way-to-randomize-an-array-with-net
+
+    public void Shuffle() {
+        System.Random rng = new System.Random();
+
+        int n = cards.Length;
+        while (n > 1) 
+        {
+            int k = rng.Next(n--);
+            Card temp = cards[n];
+            cards[n] = cards[k];
+            cards[k] = temp;
+        }
+    }
+
+    public void StartMoving() {
+        dragging = true;
+    }
+
+    public void Rotate() {
+        horizontal = !horizontal;
+
+        if(horizontal){
+            sr.sprite = horSprite;
+        } else {
+            sr.sprite = vecSprite;
+        }
+
+        // MeshRenderer renderer = GetComponent<MeshRenderer>();
+        // bc.offset = sr.bounds.center;
+        bc.size = sr.bounds.size;
+    }
+
+    private void OnMouseOver() {
+        // Right Click menu
+        if(Input.GetMouseButtonDown(1)){
+            GameObject tempMenu = Instantiate(menu, GameObject.Find("Canvas").transform);
+            Button[] buttons = tempMenu.GetComponentsInChildren<Button>();
+            Button takeOut = buttons[0];
+            Button shuffle = buttons[1];
+            Button move = buttons[2];
+            Button rotate = buttons[3];
+            tempMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            takeOut.onClick.AddListener(()=>{TakeOutCard(); Destroy(tempMenu);});
+            shuffle.onClick.AddListener(Shuffle);
+            move.onClick.AddListener(()=>{StartMoving(); Destroy(tempMenu);});
+            rotate.onClick.AddListener(Rotate);
+        }
     }
 
     private Card[] appendCard(Card[] og, Card card) {
