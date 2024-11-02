@@ -20,7 +20,7 @@ This is a unity project but I only included the assests folder because i am bad 
     - [X] Select deck to add card to
     - [X] Background right click menu [Disabled]
 - Chips
-  - [ ] Move
+  - [X] Move
 - Stacks (Many chips)
   - [ ] Add Chips
   - [ ] Right click menu
