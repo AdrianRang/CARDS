@@ -19,14 +19,18 @@ This is a unity project but I only included the assests folder because i am bad 
   - [X] Create multiple decks
     - [X] Select deck to add card to
     - [X] Background right click menu [Disabled]
+  - [ ] Add Deck to Deck
 - Chips
   - [X] Move
+  - [X] Turn To stack
 - Stacks (Many chips)
-  - [ ] Add Chips
-  - [ ] Right click menu
-  - [ ] Remove chips
-  - [ ] Display amount
-  - [ ] Separate into smaller stacks 
+  - [X] Add Chips
+  - [X] Right click menu
+  - [X] Remove chips
+  - [X] Display amount
+  - [X] Move
+  - [ ] Separate into smaller stacks
+  - [ ] Add Stack to stack
 - Multiplayer
   - [ ] Working multiplayer
   - [ ] Card Ownership

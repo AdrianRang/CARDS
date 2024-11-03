@@ -110,6 +110,7 @@ MonoBehaviour:
   - {fileID: -1843993029, guid: d31969c68d10849f89809191fe6311d6, type: 3}
   - {fileID: 921389565, guid: d31969c68d10849f89809191fe6311d6, type: 3}
   chipVal: 0
+  stackPrefab: {fileID: 635679180603214078, guid: 6b1a9b8e76ab042788b9e43ad64caed0, type: 3}
 --- !u!70 &3311836215739526776
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -67,10 +67,6 @@ public class Card : MonoBehaviour
         mouseOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         timeWhenPressed = Time.time;
         sr.sortingOrder = 1;
-        // if(Input.GetKey(KeyCode.A)){
-        //     GameObject.Find("Deck").GetComponent<Deck>().addCard(gameObject);
-        //     Destroy(gameObject);
-        // }
     }
 
     private void OnMouseUp() {
