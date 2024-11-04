@@ -51,5 +51,4 @@ public class BackgroundMenu : MonoBehaviour
     private void OnMouseExit() {
         mouseIsOver = false;
     }
-
 }

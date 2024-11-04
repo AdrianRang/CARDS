@@ -18,7 +18,6 @@ This is a unity project but I only included the assests folder because i am bad 
   - [X] Add cards to deck by dropping them over it
   - [X] Create multiple decks
     - [X] Select deck to add card to
-    - [X] Background right click menu [Disabled]
   - [X] Add Deck to Deck
 - Chips
   - [X] Move
@@ -31,6 +30,13 @@ This is a unity project but I only included the assests folder because i am bad 
   - [X] Move
   - [X] Separate into smaller stacks (click)
   - [X] Add Stack to stack
+- Playability
+  - [X] Background Right click menu
+  - [X] Create new deck (Complete deck ofc)
+  - [ ] Create chips
+  - [ ] Add remove to all elements' right click menu
+  - [ ] Show amount of cards in a deck
+  - [ ] Select multiple elements
 - Multiplayer
   - [ ] Working multiplayer
   - [ ] Card Ownership
