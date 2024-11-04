@@ -51,6 +51,19 @@ public class Stack : MonoBehaviour
         }
     }
 
+    private void OnMouseUp() {
+        if(GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Stacks"))) {
+            Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position, LayerMask.GetMask("Stacks"));
+            foreach (Collider2D collider in colliders) {
+                if (collider.GetComponent<Stack>() != null && collider.gameObject != gameObject) {
+                    collider.gameObject.GetComponent<Stack>().AddStack(gameObject);
+                    // Destroy(gameObject);
+                    break;
+                }
+            }
+        }
+    }
+
     private void OnMouseOver() {
         // Right Click menu
         if(Input.GetMouseButtonDown(1)){
@@ -113,6 +126,11 @@ public class Stack : MonoBehaviour
         GameObject newStack = Instantiate(gameObject);
         newStack.GetComponent<Stack>().amount = amount;
         newStack.GetComponent<Stack>().StartMoving();
+    }
+
+    public void AddStack(GameObject stack) {
+        this.amount += stack.GetComponent<Stack>().amount;
+        Destroy(stack);
     }
 
     public void StartMoving() {

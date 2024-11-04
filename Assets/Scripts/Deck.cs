@@ -55,6 +55,28 @@ public class Deck : MonoBehaviour
         Destroy(card);
     }
 
+    public void AddDeck(GameObject otherDeck) {
+        Deck other = otherDeck.GetComponent<Deck>();
+        Card[] newCards = new Card[cards.Length + other.cards.Length];
+        for(int i = 0; i < cards.Length; i++) newCards[i] = cards[i];
+        for(int i = cards.Length; i < cards.Length + other.cards.Length; i++) newCards[i] = other.cards[i-cards.Length];
+        cards = newCards;
+        Destroy(otherDeck);
+    }
+
+    private void OnMouseUp() {
+        if(GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Decks"))) {
+            Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position, LayerMask.GetMask("Decks"));
+            foreach (Collider2D collider in colliders) {
+                if (collider.GetComponent<Deck>() != null && collider.gameObject != gameObject) {
+                    collider.gameObject.GetComponent<Deck>().AddDeck(gameObject);
+                    // Destroy(gameObject);
+                    break;
+                }
+            }
+        }
+    }
+
     private void OnMouseDown() {
         if(!dragging){
             TakeOutCard();
