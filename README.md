@@ -36,11 +36,11 @@ This is a unity project but I only included the assests folder because i am bad 
   - [X] Create chips
   - [X] Add remove to all elements' right click menu
   - [X] Show amount of cards in a deck
-  - [ ] Select multiple elements
-- Multiplayer
-  - [ ] Working multiplayer
-  - [ ] Card Ownership
-  - [ ] Card Peeking
+  - [X] Select multiple elements
+// - Multiplayer Maybe Later
+//   - [ ] Working multiplayer
+//   - [ ] Card Ownership
+//   - [ ] Card Peeking
 
 
 Card Assets are from [here](https://screamingbrainstudios.itch.io/poker-pack)

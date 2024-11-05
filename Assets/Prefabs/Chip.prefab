@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7708520829085328750}
   - component: {fileID: 716334029189764497}
   - component: {fileID: 3311836215739526776}
+  - component: {fileID: 244830630617614874}
   m_Layer: 0
   m_Name: Chip
   m_TagString: Untagged
@@ -148,3 +149,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6, y: 0.68}
   m_Direction: 0
+--- !u!114 &244830630617614874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132599344678467452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69b80ab883f4b039c36f13d06732c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

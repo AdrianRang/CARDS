@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6015771524787253569}
   - component: {fileID: 3100113855356460038}
   - component: {fileID: 7351801329292098915}
+  - component: {fileID: 5978924302721481185}
   - component: {fileID: 448795240099915209}
   - component: {fileID: 5737148817151366854}
   m_Layer: 7
@@ -106,6 +107,18 @@ MonoBehaviour:
   chip: {fileID: 7132599344678467452, guid: 4c54545886b394469ae4367329977382, type: 3}
   menu: {fileID: 5067348860832624172, guid: d95aee85b74064162b3c07d3e34e0db3, type: 3}
   takeOutMenu: {fileID: 2532469800944129157, guid: 662ae26c6976e4d10b50fb1d3821fadf, type: 3}
+--- !u!114 &5978924302721481185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635679180603214078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e69b80ab883f4b039c36f13d06732c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &448795240099915209
 CircleCollider2D:
   m_ObjectHideFlags: 0
