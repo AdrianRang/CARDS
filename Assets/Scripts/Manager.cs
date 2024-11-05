@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,13 @@ public class Manager : MonoBehaviour
 {
     public GameObject cardPrefab;
     public GameObject deckPrefab;
+    public GameObject stackPrefab;
     public GameObject bgMenu;
+    public GameObject stackMenuPrefab;
 
     private Vector2 hidden = new Vector2(10, 10);
+
+    private uint maxWithdraw = 1000000;
 
     void Awake()
     {
@@ -35,6 +40,24 @@ public class Manager : MonoBehaviour
 
     public void GenBackgroundMenu() {
         bgMenu.transform.position = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    public void GenStackMenu() {
+        GameObject toMenu = Instantiate(stackMenuPrefab, GameObject.Find("Canvas").transform);
+        toMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        toMenu.GetComponentInChildren<Scrollbar>().onValueChanged.AddListener((value)=>{
+            toMenu.GetComponentsInChildren<TextMeshProUGUI>()[0].text = "$" + ((int)(value * maxWithdraw)).ToString();
+        });
+        Button[] buttons = toMenu.GetComponentsInChildren<Button>();
+        buttons[0].onClick.AddListener(() => {
+            uint amount = (uint)(toMenu.GetComponentInChildren<Scrollbar>().value * maxWithdraw);
+
+            GameObject newStack = Instantiate(stackPrefab);
+            newStack.GetComponent<Stack>().amount = amount;
+            newStack.GetComponent<Stack>().StartMoving();
+        });
+        buttons[1].onClick.AddListener(() => {toMenu.GetComponentInChildren<Scrollbar>().value += 1/(float)maxWithdraw;});
+        buttons[2].onClick.AddListener(() => {toMenu.GetComponentInChildren<Scrollbar>().value -= 1/(float)maxWithdraw;});
     }
 
     public bool IsMouseOverBgMenu() {

@@ -33,9 +33,9 @@ This is a unity project but I only included the assests folder because i am bad 
 - Playability
   - [X] Background Right click menu
   - [X] Create new deck (Complete deck ofc)
-  - [ ] Create chips
-  - [ ] Add remove to all elements' right click menu
-  - [ ] Show amount of cards in a deck
+  - [X] Create chips
+  - [X] Add remove to all elements' right click menu
+  - [X] Show amount of cards in a deck
   - [ ] Select multiple elements
 - Multiplayer
   - [ ] Working multiplayer

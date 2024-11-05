@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class Stack : MonoBehaviour
 {
-    [SerializeField]
-    private uint amount;
+    // [SerializeField]
+    // private uint amount;
+
+    public uint amount;
 
     public GameObject chip;
     public GameObject menu;
@@ -17,7 +19,7 @@ public class Stack : MonoBehaviour
 
     private bool dragging = false;
 
-    void Awake()
+    void Start()
     {
         display = GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -71,11 +73,13 @@ public class Stack : MonoBehaviour
             Button[] buttons = tempMenu.GetComponentsInChildren<Button>();
             Button takeOut = buttons[0];
             Button move = buttons[1];
+            Button destroy = buttons[2];
 
             tempMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             takeOut.onClick.AddListener(WithdrawChipsMenu);
             move.onClick.AddListener(StartMoving);
+            destroy.onClick.AddListener(() => {Destroy(gameObject);});
         }
     }
 

@@ -97,10 +97,12 @@ public class Card : MonoBehaviour
             GameObject tempMenu = Instantiate(menu, GameObject.Find("Canvas").transform);
             Button turnOver = tempMenu.GetComponentsInChildren<Button>()[0];
             Button sendToDeck = tempMenu.GetComponentsInChildren<Button>()[1];
+            Button destroy = tempMenu.GetComponentsInChildren<Button>()[2];
 
             tempMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
             turnOver.onClick.AddListener(TurnCard);
             sendToDeck.onClick.AddListener(TurnToDeck);
+            destroy.onClick.AddListener(() => Destroy(gameObject));
         }
     }
 

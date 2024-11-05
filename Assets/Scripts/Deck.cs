@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -139,12 +140,16 @@ public class Deck : MonoBehaviour
             Button shuffle = buttons[1];
             Button move = buttons[2];
             Button rotate = buttons[3];
+            Button delete = buttons[4];
             tempMenu.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             takeOut.onClick.AddListener(()=>{TakeOutCard(); Destroy(tempMenu);});
             shuffle.onClick.AddListener(Shuffle);
             move.onClick.AddListener(()=>{StartMoving(); Destroy(tempMenu);});
             rotate.onClick.AddListener(Rotate);
+            delete.onClick.AddListener(() => {Destroy(gameObject);});
+
+            tempMenu.GetComponentInChildren<TextMeshProUGUI>().text = "Deck (" + cards.Length + ")";
         }
     }
 

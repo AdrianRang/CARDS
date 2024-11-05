@@ -2630,7 +2630,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 7080301341162926938, guid: 315f687e4a99845e0ae5158f4994d3a4, type: 3}
   deckPrefab: {fileID: 2246650771828569181, guid: 65a90a6ef1a14442b8355fe103bdb49e, type: 3}
+  stackPrefab: {fileID: 635679180603214078, guid: 6b1a9b8e76ab042788b9e43ad64caed0, type: 3}
   bgMenu: {fileID: 1958644268}
+  stackMenuPrefab: {fileID: 2532469800944129157, guid: 662ae26c6976e4d10b50fb1d3821fadf, type: 3}
 --- !u!4 &1461771169
 Transform:
   m_ObjectHideFlags: 0
@@ -3750,7 +3752,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1845105346}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1461771168}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: GenStackMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1845105346
 MonoBehaviour:
   m_ObjectHideFlags: 0
