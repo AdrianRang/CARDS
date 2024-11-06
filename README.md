@@ -42,5 +42,7 @@ This is a unity project but I only included the assests folder because i am bad 
 //   - [ ] Card Ownership
 //   - [ ] Card Peeking
 
+- [X] Tutorial
+
 
 Card Assets are from [here](https://screamingbrainstudios.itch.io/poker-pack)
