@@ -1,5 +1,12 @@
 # CARDS
-Just cards
+Just cards and chips.
+
+Made with unity. Play in [itch](https://lename.itch.io/cards).
+Also uploded un HighSeas
+
+<img width="1440" alt="Screenshot 2024-11-06 at 8 56 04 p m" src="https://github.com/user-attachments/assets/788e4b92-b3ea-4469-84f9-960d49bb1b5d">
+<img width="1440" alt="Screenshot 2024-11-06 at 8 59 09 p m" src="https://github.com/user-attachments/assets/75cdaf60-465b-4663-9a3f-f2bd71ce85f8">
+
 
 This is a unity project but I only included the assests folder because i am bad at git
 
